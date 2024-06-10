@@ -12,8 +12,7 @@
     "test:format": "prettier --check --ignore-unknown src",
     "test:lint": "eslint . --ignore-pattern dist",
     "test:unit": "vitest run",
-    "secret":"node src/lib/authjs/gen-secret.js"
-    
+    "secret": "node src/lib/authjs/gen-secret.js"
   },
   "devDependencies": {
     "@biomejs/biome": "1.7.0",
@@ -27,6 +26,7 @@
     "daisify-shadcn": "^0.0.1",
     "daisyui": "4.10.1",
     "dotenv": "^16.4.5",
+    "drizzle-kit": "^0.22.7",
     "eslint": "^8.57.0",
     "postcss": "8.4.35",
     "prettier": "^3.2.5",
@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "@auth/core": "^0.32.0",
+    "@auth/drizzle-adapter": "^1.2.0",
     "@hattip/cookie": "^0.0.44",
     "@hattip/response": "^0.0.44",
     "@hookform/resolvers": "^3.3.4",
@@ -85,6 +86,7 @@
     "cmdk": "^0.2.1",
     "date-fns": "^3.3.1",
     "devalue": "^4.3.2",
+    "drizzle-orm": "^0.31.2",
     "lucide-react": "^0.354.0",
     "pocketbase": "^0.21.1",
     "react": "^18.2.0",
