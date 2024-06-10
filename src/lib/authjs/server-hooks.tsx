@@ -2,7 +2,6 @@ import { uneval } from "devalue";
 import type { ServerPluginFactory } from "rakkasjs/server";
 import { Auth } from "@auth/core";
 import type { Provider } from "@auth/core/providers";
-import GitHubProvider from "@auth/core/providers/github";
 import GoogleProvider from "@auth/core/providers/google";
 
 const authjsServerHooksFactory: ServerPluginFactory = (_, options) => ({
@@ -16,8 +15,6 @@ const authjsServerHooksFactory: ServerPluginFactory = (_, options) => ({
 
         const {
           SERVER_SECRET,
-          GITHUB_CLIENT_ID,
-          GITHUB_CLIENT_SECRET,
           GOOGLE_CLIENT_ID,
           GOOGLE_CLIENT_SECRET,
         } = process.env;
@@ -30,19 +27,6 @@ const authjsServerHooksFactory: ServerPluginFactory = (_, options) => ({
         }
 
         const providers: Provider[] = [];
-
-        if (GITHUB_CLIENT_ID && GITHUB_CLIENT_SECRET) {
-          providers.push(
-            GitHubProvider({
-              clientId: GITHUB_CLIENT_ID,
-              clientSecret: GITHUB_CLIENT_SECRET,
-            }) as any,
-          );
-        } else {
-          console.warn(
-            "GitHub client ID and secret not set, GitHub login disabled",
-          );
-        }
 
         if (GOOGLE_CLIENT_ID && GOOGLE_CLIENT_SECRET) {
           providers.push(
